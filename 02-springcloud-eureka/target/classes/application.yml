@@ -1,0 +1,15 @@
+server:
+  port: 9000 #端口
+spring:
+  application:
+    name: 02-springcloud-eureka #服务名称
+eureka:
+  instance:
+    hostname: eureka-server
+    prefer-ip-address: true #使用ip地址注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #向注册中心中注册服务id
+  client:
+    register-with-eureka: false #是否将自己注册到注册中心
+    fetch-registry: false #是否从eureka中获取注册信息
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
