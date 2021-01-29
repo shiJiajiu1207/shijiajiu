@@ -1,0 +1,21 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: 001-springcloud-eureka #服务名称
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+eureka:
+  instance:
+    hostname: eureka-server
+    prefer-ip-address: true
+    instance-id: http://${spring.cloud.client.ip-address}:${server.port}
+  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+  server:
+    enable-self-preservation: false

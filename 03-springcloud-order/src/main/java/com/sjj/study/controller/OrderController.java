@@ -43,7 +43,7 @@ public class OrderController {
 
         //List<ServiceInstance> instances = discoveryClient.getInstances("01-SPRINGCLOUD-PRODUCT");
         //ServiceInstance instance = instances.get(0);
-
+        //测试
         Product product = productFeignClient.findById(id);
         return product;
     }
